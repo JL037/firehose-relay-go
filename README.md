@@ -1,6 +1,6 @@
 # firehose-relay-go
 
-A Go rebuild of VoxPort's production AT Protocol firehose filter — the same job, the same 2,000+ events/sec input, the same 7 collection types — rewritten to put a real, measured number next to it.
+A Go rebuild of VoxPort's production AT Protocol firehose filter — the same job, the same 2,000+ events/sec input, the same 9 collection types — rewritten to put a real, measured number next to it.
 
 > **Status: early build.** This is a from-scratch rewrite in progress. The benchmark numbers below are placeholders until `results/` has real data in it — see [Benchmarking](#benchmarking).
 
@@ -75,7 +75,7 @@ The comparison against the Node version only means something if both sides see i
 
 ## Roadmap
 
-- [ ] Consume the firehose, filter to the 7 production collection types
+- [ ] Consume the firehose, filter to the 9 production collection types (7 Bluesky + 2 VoxPort lexicons)
 - [ ] Batch-write matched events to Postgres via pgx
 - [ ] `/stats` endpoint + live dashboard
 - [ ] Recorded-sample benchmark harness vs. the Node version
