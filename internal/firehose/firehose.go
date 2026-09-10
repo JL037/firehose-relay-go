@@ -28,11 +28,26 @@ type Commit struct {
 	Record     json.RawMessage `json:"record,omitempty"`
 }
 
-// DefaultCollections will mirror the seven collection types VoxPort's
-// production pipeline filters for. TODO: pin down the exact set.
+// DefaultCollections is the set of collection types the relay keeps; every
+// other collection on the firehose is dropped. This is the single source of
+// truth for what "matched" means, so the live source, the replay path, and
+// the benchmark all agree.
+//
+// The first seven are the core Bluesky types the production pipeline filters
+// for; the last two are VoxPort's own custom lexicons. That makes nine total
+// — the README/plan still say "seven", which we'll reconcile.
 var DefaultCollections = []string{
-	// "app.bsky.feed.post",
-	// ... (7 total)
+	// Core Bluesky collections
+	"app.bsky.feed.post",
+	"app.bsky.feed.repost",
+	"app.bsky.feed.like",
+	"app.bsky.graph.follow",
+	"app.bsky.graph.block",
+	"app.bsky.graph.listitem",
+	"app.bsky.actor.profile",
+	// VoxPort custom lexicons
+	"live.voxport.podcast.episode",
+	"live.voxport.podcast.series",
 }
 
 // Source is anything that produces a stream of firehose Events: the live
