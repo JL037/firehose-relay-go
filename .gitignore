@@ -24,9 +24,41 @@ profile.cov
 go.work
 go.work.sum
 
-# env file
-.env
+# Local build output (binaries built into the repo)
+/relay
+/capture
+/bin/
+/dist/
 
-# Editor/IDE
-# .idea/
-# .vscode/
+# --- Secrets & credentials: never commit these on a public repo ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*.der
+*.secret
+secrets.*
+credentials.json
+*_credentials.json
+service-account*.json
+.netrc
+.pgpass
+# Kubernetes / cloud config that can carry cluster creds (week 6)
+kubeconfig
+*.kubeconfig
+*.kubeconfig.yaml
+
+# --- Private working docs: kept local, out of the public repo ---
+docs/
+
+# --- OS / editor cruft ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
