@@ -1,0 +1,25 @@
+# SCAFFOLD: skeleton Deployment for the relay. TODO(week 6): set the real
+# image, resource requests/limits, env (Postgres DSN via Secret), and probes.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: firehose-relay
+  labels:
+    app: firehose-relay
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: firehose-relay
+  template:
+    metadata:
+      labels:
+        app: firehose-relay
+    spec:
+      containers:
+        - name: relay
+          image: firehose-relay:dev # TODO: real image ref
+          ports:
+            - containerPort: 8080
+              name: stats
+          # TODO: env (DB DSN), resources, liveness/readiness probes on /stats

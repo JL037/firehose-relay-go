@@ -1,0 +1,15 @@
+# SCAFFOLD: skeleton Service exposing the stats/metrics port. TODO(week 6):
+# confirm port naming once /metrics (Prometheus) replaces /stats in-cluster.
+apiVersion: v1
+kind: Service
+metadata:
+  name: firehose-relay
+  labels:
+    app: firehose-relay
+spec:
+  selector:
+    app: firehose-relay
+  ports:
+    - name: stats
+      port: 8080
+      targetPort: stats
