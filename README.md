@@ -8,7 +8,7 @@ A Go rebuild of VoxPort's production AT Protocol firehose filter — the same jo
 
 VoxPort's ingestion pipeline filters the Bluesky firehose server-side, dropping ~96% of incoming events at the source before they ever touch the database. That pipeline runs in Node today. This repo is the same logic, same protocol, same filtering rules — written in Go — so the comparison between the two is an honest one: same input, same author, different language.
 
-It's not a toy project against a made-up problem. It's a controlled rewrite of something already running in production.
+It's a controlled rewrite of something already running in production.
 
 ## Architecture
 
